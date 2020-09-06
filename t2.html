@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        div[class*="square"] {
+            transition: linear .15s;
+            position: absolute;
+            width: 23.57vh;
+            height: 23.57vh;
+            box-shadow: 0 0 10px 5px darkred;
+        }
+
+        div.square1 {
+            background-color: orangered;
+        }
+
+        div.square2 {
+            transform: rotateZ(45deg);
+            background-color: white;
+        }
+
+        .wrapper {
+            width: 34vh;
+            height: 34vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /*transform:scale(.2);*/
+        }
+
+        .wrapper:hover div.square1 {
+            transform: rotateZ(45deg);
+        }
+
+        .wrapper:hover div.square2 {
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="square1"></div>
+    <div class="square2"></div>
+</div>
+</body>
+</html>
