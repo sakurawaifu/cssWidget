@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        section > div:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .scene {
+            width: 200px;
+            height: 200px;
+            perspective: 750px;
+            transform-style: preserve-3d;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+
+            transform-style: preserve-3d;
+        }
+
+        .cube:hover {
+            transform: rotateY(30deg);
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: solid 1px white;
+            color: white;
+            font-size: 2.5rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            backface-visibility: hidden;
+        }
+
+        .front {
+            transform: translateZ(100px);
+        }
+
+        .back {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .top {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+<div class="scene">
+    <div class="cube" style="transform: rotateY(0) rotateX(0)">
+        <div class="face front">front</div>
+        <div class="face back">back</div>
+        <div class="face left">left</div>
+        <div class="face right">right</div>
+        <div class="face top">top</div>
+        <div class="face bottom">bottom</div>
+    </div>
+</div>
+
+<section>
+    <div>
+        <label for="h-angle">水平角度：</label>
+        <br>
+        <input id="h-angle" type="range" min="-180" max="180" step="1">
+        <br>
+        <span id="h-angle-msg">0</span>
+    </div>
+    <div>
+        <label for="v-angle">垂直角度：</label>
+        <br>
+        <input id="v-angle" type="range" min="-180" max="180" step="1">
+        <br>
+        <span id="v-angle-msg">0</span>
+    </div>
+</section>
+
+<script>
+    let hControl = document.getElementById("h-angle");
+    let vControl = document.getElementById("v-angle");
+    let hMsg = document.getElementById("h-angle-msg");
+    let vMsg = document.getElementById("v-angle-msg");
+    let cube = document.getElementsByClassName("cube")[0];
+    let hAngle = 0, vAngle = 0;
+
+    hControl.addEventListener("input", function (event) {
+        hAngle = hControl.value;
+        hMsg.textContent = hAngle + "°";
+        cube.style.transform = `rotateY(${hAngle}deg) rotateX(${vAngle}deg)`;
+    });
+
+    vControl.addEventListener("input", function (event) {
+        vAngle = vControl.value;
+        vMsg.textContent = vAngle + "°";
+        cube.style.transform = `rotateY(${hAngle}deg) rotateX(${vAngle}deg)`;
+    })
+</script>
+</body>
+</html>
