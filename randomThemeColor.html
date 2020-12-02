@@ -19,7 +19,6 @@
 <button>随机皮肤</button>
 <script>
     document.documentElement.style.setProperty("--theme-color", localStorage.getItem("theme-color"));
-
     let btn = document.getElementsByTagName("button")[0];
     btn.addEventListener("click", (() => {
         // let rootElemStyle = getComputedStyle(document.documentElement);
