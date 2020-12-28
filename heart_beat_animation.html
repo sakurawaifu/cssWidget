@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hans-cmn-CN">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            position: relative;
+            left: -25px;
+            transform-origin: calc(50% + 25px) 50%;
+            width: 150px;
+            height: 100px;
+            animation: beat .8s infinite ease;
+        }
+
+        #container > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            border-radius: 50px 0 0 50px/50px 0 0 50px;
+            transform-origin: 100px 50px;
+        }
+
+        #left-side {
+            transform: rotateZ(45deg);
+        }
+
+        #right-side {
+            transform: rotateZ(135deg);
+        }
+
+        @keyframes beat {
+            25% {
+                transform: scale(0.8);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            75% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="left-side"></div>
+    <div id="right-side"></div>
+</div>
+
+<script>
+    // window.addEventListener("load", function (event) {
+    //     let vLine = document.createElement("div");
+    //     vLine.style.position = "fixed";
+    //     vLine.style.width = "1px";
+    //     vLine.style.height = "100vh";
+    //     vLine.style.backgroundColor = "#000";
+    //     vLine.style.transform = "scaleX(.5)";
+    //     document.body.appendChild(vLine);
+    // });
+</script>
+</body>
+</html>
