@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hans-cmn-CN">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            border-radius: 10px;
+        }
+
+        div:hover {
+            animation-name: jelly-shake, jelly-shake-small;
+            animation-duration: .25s;
+            animation-delay: 0s, .25s;
+        }
+
+        @keyframes jelly-shake {
+            25% {
+                transform: scale(.8, 1.2);
+            }
+            75% {
+                transform: scale(1.2, .8);
+            }
+        }
+
+        @keyframes jelly-shake-small {
+            25% {
+                transform: scale(.9, 1.1);
+            }
+            75% {
+                transform: scale(1.1, .9);
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+
+<script>
+</script>
+</body>
+</html>
