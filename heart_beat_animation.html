@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="zh-Hans-cmn-CN">
 <head>
+    <title>untitled</title>
     <meta charset="utf-8">
     <style>
         body {
@@ -21,7 +22,7 @@
             transform-origin: calc(50% + 25px) 50%;
             width: 150px;
             height: 100px;
-            animation: beat .8s infinite ease;
+            animation: beat .8s infinite ease-in;
         }
 
         #container > div {
@@ -43,12 +44,12 @@
 
         @keyframes beat {
             25% {
-                transform: scale(0.8);
+                transform: scale(0.97);
             }
             50% {
-                transform: scale(1.2);
+                transform: scale(1.15);
             }
-            75% {
+            55% {
                 transform: scale(1);
             }
         }
@@ -59,7 +60,6 @@
     <div id="left-side"></div>
     <div id="right-side"></div>
 </div>
-
 
 </body>
 </html>
