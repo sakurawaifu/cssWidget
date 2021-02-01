@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>untitled</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scene {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            overflow: hidden scroll;
+        }
+
+        .elem {
+            position: absolute;
+            width: 100%;
+            height: 200%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .elem:first-child {
+            left: 0;
+            transform: translateZ(-1000px) scale(1);
+            /*transform: translateZ(-1000px) scale(2) translateY(-50vh);*/
+        }
+
+        .elem:first-child > div {
+            position: relative;
+            left: 50px;
+            border: solid 1px blue;
+            background-color: #ddd;
+        }
+
+        .elem:last-child {
+            right: 0;
+            transform: none;
+            /*transform: translateY(-50vh);*/
+        }
+
+        .elem > div {
+            width: 100%;
+            height: 50vh;
+            box-sizing: border-box;
+            border: solid 2px;
+        }
+
+        #ruler {
+            --width: 1px;
+            width: var(--width);
+            height: 100vh;
+            background-color: red;
+            padding: 0;
+            position: fixed;
+            right: calc(50% - var(--width));
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+        }
+
+        #ruler > li {
+            font-size: 0.5em;
+            box-sizing: border-box;
+            height: 25px;
+            line-height: 25px;
+            width: 25px;
+            border-bottom: red solid 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="scene">
+    <div class="elem">
+        <div>1</div>
+    </div>
+    <div class="elem">
+        <div>2</div>
+    </div>
+</div>
+
+<ul id="ruler">
+    <li>150</li>
+    <li>125</li>
+    <li>100</li>
+    <li>75</li>
+    <li>50</li>
+    <li>25</li>
+    <li>0</li>
+    <li>x</li>
+    <li>x</li>
+    <li>x</li>
+    <li>x</li>
+    <li>x</li>
+    <li>x</li>
+    <li>x</li>
+</ul>
+<script>
+</script>
+</body>
+</html>
