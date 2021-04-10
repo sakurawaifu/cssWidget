@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>untitled</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            width: 15em;
+            height: 4em;
+            align-items: flex-end;
+            border: solid 1px black;
+            border-radius: 2px;
+        }
+
+        #container > * {
+            position: relative;
+            flex: 2;
+            inline-size: 1em;
+            text-align: center;
+            box-sizing: border-box;
+            border-left: solid 1px gray;
+            filter: opacity(0.4) grayscale(0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: flex-grow 0.175s, filter 0.175s;
+        }
+
+        #container > :hover {
+            flex-grow: 3;
+            filter: none;
+        }
+
+        #container > :first-child {
+            border-bottom: solid 1px gray;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="d1">👆</div>
+    <div id="d2">👇</div>
+</div>
+</body>
+</html>
