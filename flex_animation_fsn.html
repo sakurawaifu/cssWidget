@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>untitled</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #container > :hover {
+            flex-grow: 2;
+        }
+
+        #container > * {
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            flex: 1;
+            transition: flex-grow 0.25s;
+        }
+
+        #d1 {
+            background-image: url("images/saber.png");
+        }
+
+        #d2 {
+            background-image: url("images/rin.png");
+        }
+
+        #d3 {
+            background-image: url("images/sakura.png");
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+</div>
+</body>
+</html>
