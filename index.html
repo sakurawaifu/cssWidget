@@ -4,56 +4,70 @@
     <meta charset="utf-8">
     <title>untitled( - world)</title>
     <style>
+        html {
+            background-color: #3C2F41;
+        }
+
         body {
             margin: 0;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
             font-size: 1.5rem;
             padding: 0.5rem;
+            text-align: center;
+            color: #F596AA;
+            flex: none;
         }
 
         main {
             padding: 0 0.5rem;
+            flex: 1;
+            box-sizing: border-box;
         }
 
         footer {
             margin: 0 4em;
-            color: mediumpurple;
-            position: sticky;
-            top: calc(100vh - 1em + 0.25em * 2);
-            padding: 0.25em 0;
-            text-align: center;
             border-top: solid 1px #ccc;
+            padding: 0.25em 0;
+            color: #fff;
+            text-align: center;
+            flex: none;
         }
 
-        ul {
-            padding: 0;
+        .item-list {
             margin: 0;
+            padding: 0;
             list-style-type: none;
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             align-items: flex-start;
-            /*justify-content: flex-start;*/
         }
 
-        li {
+        main .item-list > .item {
             flex: none;
             padding: 0.25em 1em;
-            margin-right: 0.5rem;
             background-color: pink;
             border-radius: 2px;
             transition: filter 0.2s;
         }
 
-        a {
+        main .item-list > .item:nth-child(n+2){
+            margin-left: 10px;
+        }
+
+        main .item-list > .item > a {
             color: black;
             text-decoration: none;
         }
 
-        li:hover {
-            filter: brightness(0.8);
+        main .item-list > .item:hover {
+            cursor: pointer;
+            filter: brightness(0.75);
         }
     </style>
 </head>
@@ -62,11 +76,11 @@
     見て見て
 </header>
 <main>
-    <ul>
-        <li><a href="t2.html">t2</a></li>
-        <li><a href="jelly_shake_animation.html">jelly shake animation</a></li>
-        <li><a href="neon_shadow.html">红蓝双色neon shadow</a></li>
-        <li><a href="sector_loading.html">sector loading</a></li>
+    <ul class="item-list">
+        <li class="item"><a href="t2.html">t2</a></li>
+        <li class="item"><a href="jelly_shake_animation.html">jelly shake animation</a></li>
+        <li class="item"><a href="neon_shadow.html">红蓝双色neon shadow</a></li>
+        <li class="item"><a href="sector_loading.html">sector loading</a></li>
     </ul>
 </main>
 <footer>
