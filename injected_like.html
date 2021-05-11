@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>untitled</title>
+    <style>
+        html {
+            background-color: #080808;
+            --radius: 200px;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            position: relative;
+            width: var(--radius);
+            height: var(--radius);
+            --animation: rotate 1s linear infinite;
+        }
+
+        #container > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #foreground {
+            border-radius: 50%;
+            box-shadow: 5px 5px 10px 5px #f0f0f0,
+            20px 20px 30px -8px yellow,
+            0 0 20px 15px #91f9fe,
+            50px 50px 100px 20px #E83015,
+            200px 200px 1000px 200px #670003;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #fff;
+            font-size: 2rem;
+
+            animation: var(--animation);
+        }
+
+        #content {
+            animation: var(--animation) reverse;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotateZ(-1turn);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="foreground">
+        <div id="content">REFINE</div>
+    </div>
+</div>
+</body>
+</html>
