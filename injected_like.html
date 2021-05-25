@@ -6,7 +6,6 @@
     <style>
         html {
             background-color: #080808;
-            --radius: 200px;
         }
 
         body {
@@ -18,27 +17,19 @@
         }
 
         #container {
-            position: relative;
+            --radius: 200px;
+            --animation: rotate 1s linear infinite;
+
             width: var(--radius);
             height: var(--radius);
-            --animation: rotate 1s linear infinite;
-        }
-
-        #container > div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #foreground {
             border-radius: 50%;
-            box-shadow: 5px 5px 10px 5px #f0f0f0,
-            20px 20px 30px -8px yellow,
+            box-shadow: 0 0 7px 3px #f0f0f0,
+            10px 10px 10px -10px #FBE251,
+            20px 20px 20px -10px #FFC408,
             0 0 20px 15px #91f9fe,
             50px 50px 100px 20px #E83015,
             200px 200px 1000px 200px #670003;
+
 
             display: flex;
             justify-content: center;
@@ -63,9 +54,7 @@
 </head>
 <body>
 <div id="container">
-    <div id="foreground">
-        <div id="content">REFINE</div>
-    </div>
+    <div id="content">REFINE</div>
 </div>
 </body>
 </html>
