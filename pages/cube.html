@@ -2,8 +2,7 @@
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>css立方体</title>
     <style>
         body {
             margin: 0;
@@ -82,7 +81,7 @@
 </head>
 <body>
 <div class="scene">
-    <div class="cube" style="transform: rotateY(0) rotateX(0)">
+    <div class="cube">
         <div class="face front">front</div>
         <div class="face back">back</div>
         <div class="face left">left</div>
@@ -94,18 +93,15 @@
 
 <section>
     <div>
-        <label for="h-angle">水平角度：</label>
+        <label for="h-angle">水平角度：<span id="h-angle-msg">0</span></label>
         <br>
         <input id="h-angle" type="range" min="-180" max="180" step="1">
-        <br>
-        <span id="h-angle-msg">0</span>
+
     </div>
     <div>
-        <label for="v-angle">垂直角度：</label>
+        <label for="v-angle">垂直角度： <span id="v-angle-msg">0</span></label>
         <br>
         <input id="v-angle" type="range" min="-180" max="180" step="1">
-        <br>
-        <span id="v-angle-msg">0</span>
     </div>
 </section>
 
@@ -117,13 +113,13 @@
     let cube = document.getElementsByClassName("cube")[0];
     let hAngle = 0, vAngle = 0;
 
-    hControl.addEventListener("input", function (event) {
+    hControl.addEventListener("input", function () {
         hAngle = hControl.value;
         hMsg.textContent = hAngle + "°";
         cube.style.transform = `rotateY(${hAngle}deg) rotateX(${vAngle}deg)`;
     });
 
-    vControl.addEventListener("input", function (event) {
+    vControl.addEventListener("input", function () {
         vAngle = vControl.value;
         vMsg.textContent = vAngle + "°";
         cube.style.transform = `rotateY(${hAngle}deg) rotateX(${vAngle}deg)`;

@@ -2,7 +2,7 @@
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8">
-    <title>untitled</title>
+    <title>flex动画</title>
     <style>
         body {
             margin: 0;
@@ -11,10 +11,6 @@
 
         #container {
             display: flex;
-        }
-
-        #container > :hover {
-            flex-grow: 2;
         }
 
         #container > * {
@@ -26,16 +22,20 @@
             transition: flex-grow 0.25s;
         }
 
+        #container > :hover {
+            flex-grow: 2;
+        }
+
         #d1 {
-            background-image: url("images/saber.png");
+            background-image: url("../images/assets/saber.png");
         }
 
         #d2 {
-            background-image: url("images/rin.png");
+            background-image: url("../images/assets/rin.png");
         }
 
         #d3 {
-            background-image: url("images/sakura.png");
+            background-image: url("../images/assets/sakura.png");
         }
     </style>
 </head>

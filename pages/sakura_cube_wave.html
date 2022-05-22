@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="utf-8">
+    <title>樱色立方体波浪</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: papayawhip;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        #map {
+            --len: 100px;
+            --half: calc(var(--len) / 2);
+            --max: calc(var(--len) * 2);
+            width: calc(var(--len) * 3);
+            height: calc(var(--len) * 3);
+            display: flex;
+            flex-wrap: wrap;
+            transform-style: preserve-3d;
+            transform: rotateZ(45deg) rotate3d(1, -1, 0, 45deg);
+        }
+
+        .cube {
+            position: relative;
+            width: var(--len);
+            height: var(--len);
+            transform-style: preserve-3d;
+        }
+
+        .cube > .face {
+            --phase-time: 0.15s;
+            position: absolute;
+            bottom: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cube > .face {
+            animation: calc(var(--phase-time) * 5) infinite alternate;
+        }
+
+        .cube > .front-face {
+            transform: translateZ(var(--len));
+            animation-name: change-translate;
+        }
+
+        .cube > .left-face,
+        .cube > .right-face,
+        .cube > .top-face,
+        .cube > .bottom-face {
+            height: var(--len);
+            transform-origin: 50% 100%;
+        }
+
+        .cube > .left-face {
+            transform: rotateX(-90deg) rotateY(-90deg) translateZ(var(--half)) translateX(calc(var(--half) * -1));
+            animation-name: left-scale;
+        }
+
+        .cube > .right-face {
+            transform: rotateX(-90deg) rotateY(90deg) translateZ(var(--half)) translateX(var(--half));
+            animation-name: right-scale;
+        }
+
+        .cube > .top-face {
+            transform: rotateX(-90deg) translateZ(calc(var(--len) * -1));
+            animation-name: top-scale;
+        }
+
+        .cube > .bottom-face {
+            transform: rotateX(-90deg);
+            animation-name: bottom-scale;
+        }
+
+        .cube:first-child > .face {
+            background-color: #e87a90;
+        }
+
+        .cube:nth-child(2) > .face,
+        .cube:nth-child(4) > .face {
+            background-color: #f596aa;
+            animation-delay: var(--phase-time);
+        }
+
+        .cube:nth-child(3) > .face,
+        .cube:nth-child(5) > .face,
+        .cube:nth-child(7) > .face {
+            background-color: #f4a7b9;
+            animation-delay: calc(var(--phase-time) * 2);
+        }
+
+        .cube:nth-child(6) > .face,
+        .cube:nth-child(8) > .face {
+            background-color: #f8c3cd;
+            animation-delay: calc(var(--phase-time) * 3);
+        }
+
+        .cube:nth-child(9) > .face {
+            background-color: #fedfe1;
+            animation-delay: calc(var(--phase-time) * 4);
+        }
+
+        @keyframes change-translate {
+            to {
+                transform: translateZ(var(--max));
+            }
+        }
+
+        @keyframes left-scale {
+            to {
+                transform: rotateX(-90deg) rotateY(-90deg) translateZ(var(--half)) translateX(calc(var(--half) * -1)) scaleY(2);
+            }
+        }
+
+        @keyframes right-scale {
+            to {
+                transform: rotateX(-90deg) rotateY(90deg) translateZ(var(--half)) translateX(var(--half)) scaleY(2);
+            }
+        }
+
+        @keyframes top-scale {
+            to {
+                transform: rotateX(-90deg) translateZ(calc(var(--len) * -1)) scaleY(2);
+            }
+        }
+
+        @keyframes bottom-scale {
+            to {
+                transform: rotateX(-90deg) scaleY(2);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="map">
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+    <div class="cube">
+        <div class="face top-face"></div>
+        <div class="face bottom-face"></div>
+        <div class="face left-face"></div>
+        <div class="face right-face"></div>
+        <div class="face front-face"></div>
+        <div class="face back-face"></div>
+    </div>
+</div>
+</body>
+</html>

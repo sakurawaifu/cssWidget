@@ -2,7 +2,7 @@
 <html lang="zh-cmn-Hans-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Neon shadow</title>
+    <title>霓虹阴影</title>
     <style>
         body {
             margin: 0;
@@ -14,7 +14,8 @@
             align-items: center;
         }
 
-        #wrapper, #wrapper > * {
+        #wrapper,
+        #wrapper > * {
             width: 200px;
             height: 350px;
         }
@@ -35,9 +36,8 @@
             box-sizing: border-box;
             width: 200px;
             height: 350px;
-            box-shadow:
-                    10px -10px 30px -10px magenta,
-                    -10px 10px 30px -10px blue;
+            box-shadow: 10px -10px 30px -10px magenta,
+            -10px 10px 30px -10px blue;
             transform: rotate3d(-200, 350, 0, 25deg);
         }
 
@@ -49,7 +49,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <div class="content">Content</div>
+    <div class="content"></div>
 </div>
 </body>
 </html>

@@ -19,14 +19,15 @@
         div {
             width: 200px;
             height: 100px;
-            background-color: red;
+            background-color: darkorange;
             border-radius: 10px;
         }
 
         div:hover {
+            --ani-duration: 0.25s;
             animation-name: jelly-shake, jelly-shake-small;
-            animation-duration: .25s;
-            animation-delay: 0s, .25s;
+            animation-duration: var(--ani-duration);
+            animation-delay: 0, var(--ani-duration);
         }
 
         @keyframes jelly-shake {
@@ -50,8 +51,5 @@
 </head>
 <body>
 <div></div>
-
-<script>
-</script>
 </body>
 </html>

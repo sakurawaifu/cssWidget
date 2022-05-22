@@ -2,91 +2,190 @@
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8">
-    <title>untitled( - world)</title>
+    <title>css widget</title>
     <style>
         html {
-            background-color: #3C2F41;
+            background-color: rgba(254, 223, 225, 0.15);
         }
 
         body {
             margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         header {
-            font-size: 1.5rem;
-            padding: 0.5rem;
+            padding: 1.5em;
+            font-size: 2rem;
+            font-weight: bold;
             text-align: center;
-            color: #F596AA;
-            flex: none;
+            color: #d84d6d;
         }
 
         main {
-            padding: 0 0.5rem;
-            flex: 1;
-            box-sizing: border-box;
-        }
-
-        footer {
-            margin: 0 4em;
-            border-top: solid 1px #ccc;
-            padding: 0.25em 0;
-            color: #fff;
-            text-align: center;
-            flex: none;
+            padding: 0 90px;
         }
 
         /* item列表样式 */
-        main .item-list {
+        .item-list {
             margin: 0;
             padding: 0;
             list-style-type: none;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px 40px;
         }
 
-        main .item-list > .item {
-            flex: none;
-            margin-bottom: 10px;
-            padding: 0.25em 1em;
-            background-color: pink;
-            border-radius: 2px;
-            transition: filter 0.2s;
-        }
+        .item {
+            position: relative;
+            flex: 0 0 240px;
+            height: 135px;
 
-        main .item-list > .item:nth-child(n+2) {
-            margin-left: 10px;
-        }
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-        main .item-list > .item > a {
-            color: black;
-            text-decoration: none;
-        }
-
-        main .item-list > .item:hover {
+            user-select: none;
             cursor: pointer;
-            filter: brightness(0.75);
+        }
+
+        /* 包一层是为了避免变形后可交互区域减小导致的抖动问题 */
+        .item > .wrapper {
+            width: 100%;
+            height: 100%;
+
+            box-shadow: 1.1px 1.5px 5.3px rgba(0, 0, 0, 0.027),
+            3.6px 4.9px 17.9px rgba(0, 0, 0, 0.03),
+            16px 22px 80px rgba(0, 0, 0, 0.05);
+
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .item:hover > .wrapper {
+            transform: rotateY(180deg);
+        }
+
+        .item > .wrapper > .cover,
+        .item > .wrapper > .backface {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .item > .wrapper > .cover {
+            object-fit: cover;
+        }
+
+        .item > .wrapper > .backface {
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
 <body>
 <header>
-    見て見て
+    Homura Suki~♥
 </header>
 <main>
-    <ul class="item-list">
-        <li class="item"><a href="jelly_shake_animation.html">果冻摇晃动画</a></li>
-        <li class="item"><a href="neon_shadow.html">红蓝双色霓虹阴影</a></li>
-        <li class="item"><a href="sector_loading.html">扇形加载动画</a></li>
-        <li class="item"><a href="injected_like.html">仿injected动画</a></li>
-    </ul>
+    <div class="item-list">
+        <a class="item" href="pages/jelly_shake_animation.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/jelly_shake_animation.png" alt="封面">
+                <div class="backface">果冻摇晃动画</div>
+            </div>
+        </a>
+        <a class="item" href="pages/flex_animation_fsn.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/flex_animation_fsn.png" alt="封面">
+                <div class="backface">flex动画</div>
+            </div>
+        </a>
+        <a class="item" href="pages/ant_design_like_number_input.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/ant_design_like_number_input.png" alt="封面">
+                <div class="backface">仿ant design数字输入</div>
+            </div>
+        </a>
+        <a class="item" href="pages/heart_beat_animation.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/heart_beat_animation.png" alt="封面">
+                <div class="backface">心跳动画</div>
+            </div>
+        </a>
+        <a class="item" href="pages/injected_like.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/injected_like.png" alt="封面">
+                <div class="backface">仿injected MV动画</div>
+            </div>
+        </a>
+        <a class="item" href="pages/neon_shadow.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/neon_shadow.png" alt="封面">
+                <div class="backface">霓虹阴影</div>
+            </div>
+        </a>
+        <a class="item" href="pages/cube.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/cube.png" alt="封面">
+                <div class="backface">CSS立方体</div>
+            </div>
+        </a>
+        <a class="item" href="pages/orbit_old.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/orbit_old.png" alt="封面">
+                <div class="backface">轨道</div>
+            </div>
+        </a>
+        <a class="item" href="pages/random_theme_color.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/random_theme_color.png" alt="封面">
+                <div class="backface">随机主题色</div>
+            </div>
+        </a>
+        <a class="item" href="pages/sakura_cube_wave.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/sakura_cube_wave.png" alt="封面">
+                <div class="backface">樱色立方体波浪</div>
+            </div>
+        </a>
+        <a class="item" href="pages/sector_loading.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/sector_loading.png" alt="封面">
+                <div class="backface">扇形加载动画</div>
+            </div>
+        </a>
+        <a class="item" href="pages/triangle.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/triangle.png" alt="封面">
+                <div class="backface">三角绕重心旋转动画</div>
+            </div>
+        </a>
+        <a class="item" href="pages/test_animation_timing_function.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/test_animation_timing_function.png" alt="封面">
+                <div class="backface">测试时序函数图像</div>
+            </div>
+        </a>
+        <a class="item" href="pages/double_square_rotate.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/double_square_rotate.png" alt="封面">
+                <div class="backface">双矩形旋转效果</div>
+            </div>
+        </a>
+        <a class="item" href="pages/fushikiri.html" target="_blank">
+            <div class="wrapper">
+                <img class="cover" src="./images/covers/fushikiri.png" alt="封面">
+                <div class="backface">不死斩</div>
+            </div>
+        </a>
+    </div>
 </main>
-<footer>
-    -= otaku竟是我自己 =-
-</footer>
 </body>
 </html>

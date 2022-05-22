@@ -2,7 +2,7 @@
 <html lang="zh-cmn-Hans-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>轨道</title>
     <style>
         body {
             margin: 0;
@@ -34,10 +34,10 @@
             justify-content: center;
         }
 
-        .orbit::after{
+        .orbit::after {
             position: absolute;
             align-self: center;
-            content:"";
+            content: "";
             display: block;
             width: 4px;
             height: 4px;
@@ -80,6 +80,7 @@
                 transform: translateY(var(--y-offset)) rotateZ(1turn);
             }
         }
+
         /* 可以用新的方法：orbit和planet同一层级，轨道半径设为planet位移量，orbit实际width为轨道半径- border的一半，保证planet中心在border一半的位置 */
     </style>
 </head>
