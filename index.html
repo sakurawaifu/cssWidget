@@ -21,14 +21,11 @@
         }
 
         main {
-            padding: 0 90px;
+            padding: 0 90px 50px;
         }
 
         /* item列表样式 */
         .item-list {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -36,20 +33,17 @@
         }
 
         .item {
-            position: relative;
             flex: 0 0 240px;
-            height: 135px;
+            aspect-ratio: 16 / 9;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            perspective: 1000px;
             user-select: none;
             cursor: pointer;
         }
 
         /* 包一层是为了避免变形后可交互区域减小导致的抖动问题 */
         .item > .wrapper {
+            position: relative;
             width: 100%;
             height: 100%;
 
@@ -78,21 +72,21 @@
         }
 
         .item > .wrapper > .backface {
+            z-index: -1;
             transform: rotateY(180deg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-size: 1.2rem;
             font-weight: bold;
             background-color: #fff;
             color: #333;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-<header>
-    Homura Suki~♥
-</header>
+<header>Homura Suki~♥</header>
 <main>
     <div class="item-list">
         <a class="item" href="pages/jelly_shake_animation.html" target="_blank">
