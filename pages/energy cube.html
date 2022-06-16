@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="utf-8">
+    <title>能量立方体</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        #container {
+            --len: 80px;
+            --theme-color: #51a8dd;
+            position: relative;
+            width: var(--len);
+            height: var(--len);
+
+            transform: rotateZ(-45deg) rotate3d(1, 1, 0, 60deg);
+            transform-style: preserve-3d;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container > *,
+        .cube > .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        #container > .cube {
+            transform-style: preserve-3d;
+        }
+
+        #container > .wave {
+            border: solid 10px var(--theme-color);
+            animation: scale 1s infinite;
+        }
+
+        .cube > .face {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .face.top {
+            background-image: linear-gradient(45deg, white, var(--theme-color));
+            transform: translateZ(calc(var(--len)));
+        }
+
+        .face.left {
+            background-image: linear-gradient(-45deg, white, var(--theme-color));
+            transform-origin: 0 50%;
+            transform: rotateY(-90deg);
+        }
+
+        .face.right {
+            transform-origin: 100% 50%;
+            transform: rotateY(90deg);
+        }
+
+        .face.front {
+            background-image: linear-gradient(135deg, white, var(--theme-color));
+            transform-origin: 50% 100%;
+            transform: rotateX(-90deg);
+        }
+
+        .face.back {
+            transform-origin: 50% 0;
+            transform: rotateX(90deg);
+        }
+
+        @keyframes scale {
+            to {
+                border-width: 0;
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+    </div>
+    <div class="wave"></div>
+</div>
+</body>
+</html>
