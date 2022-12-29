@@ -1,59 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>仿ant design数字输入</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-        }
+  <meta charset="utf-8">
+  <title>仿ant design数字输入</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+      }
 
-        #container {
-            margin: auto;
-            border: solid 1px black;
-            border-radius: 2px;
-            width: 15em;
-            height: 4em;
+      #container {
+          margin: auto;
+          border: solid 1px black;
+          border-radius: 2px;
+          width: 15em;
+          height: 4em;
 
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
 
-        }
+      }
 
-        #container > * {
-            position: relative;
-            box-sizing: border-box;
-            border-left: solid 1px gray;
-            flex: 2;
-            inline-size: 1em;
+      #container > * {
+          position: relative;
+          box-sizing: border-box;
+          border-left: solid 1px gray;
+          flex: 2;
+          inline-size: 1em;
 
-            text-align: center;
-            user-select: none;
-            filter: opacity(0.4) grayscale(0.5);
-            transition: flex-grow 0.175s, filter 0.175s;
+          text-align: center;
+          user-select: none;
+          filter: opacity(0.4) grayscale(0.5);
+          transition: flex-grow 0.175s, filter 0.175s;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        #container > :hover {
-            flex-grow: 3;
-            filter: none;
-        }
+      #container > :hover {
+          flex-grow: 3;
+          filter: none;
+      }
 
-        #container > :first-child {
-            border-bottom: solid 1px gray;
-        }
-    </style>
+      #container > :first-child {
+          border-bottom: solid 1px gray;
+      }
+  </style>
 </head>
 <body>
 <div id="container">
-    <div id="up">👆</div>
-    <div id="down">👇</div>
+  <div id="up">👆</div>
+  <div id="down">👇</div>
 </div>
 </body>
 </html>

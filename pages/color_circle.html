@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans-CN">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>色相环</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="UTF-8">
+  <title>色相环</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        .color-circle {
-            --radius: 70vmin;
-            --max-radius: 500px;
-            border-radius: 50%;
-            width: var(--radius);
-            height: var(--radius);
-            max-width: var(--max-radius);
-            max-height: var(--max-radius);
-            background-image: conic-gradient(
-                    hsl(0deg, 100%, 50%),
-                    hsl(60deg, 100%, 50%),
-                    hsl(120deg, 100%, 50%),
-                    hsl(180deg, 100%, 50%),
-                    hsl(240deg, 100%, 50%),
-                    hsl(300deg, 100%, 50%),
-                    hsl(360deg, 100%, 50%)
-            );
-        }
-    </style>
+      .color-circle {
+          --radius: 70vmin;
+          --max-radius: 500px;
+          border-radius: 50%;
+          width: var(--radius);
+          height: var(--radius);
+          max-width: var(--max-radius);
+          max-height: var(--max-radius);
+          background-image: conic-gradient(
+                  hsl(0deg, 100%, 50%),
+                  hsl(60deg, 100%, 50%),
+                  hsl(120deg, 100%, 50%),
+                  hsl(180deg, 100%, 50%),
+                  hsl(240deg, 100%, 50%),
+                  hsl(300deg, 100%, 50%),
+                  hsl(360deg, 100%, 50%)
+          );
+      }
+  </style>
 </head>
 <body>
 <div class="color-circle"></div>

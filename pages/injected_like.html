@@ -1,60 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>仿Injected MV动画</title>
-    <style>
-        html {
-            margin: 0;
-            background-color: #080808;
-        }
+  <meta charset="utf-8">
+  <title>仿Injected MV动画</title>
+  <style>
+      html {
+          margin: 0;
+          background-color: #080808;
+      }
 
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      body {
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        #container {
-            --radius: 200px;
-            --animation: rotate 1s linear infinite;
+      #container {
+          --radius: 200px;
+          --animation: rotate 1s linear infinite;
 
-            width: var(--radius);
-            height: var(--radius);
-            border-radius: 50%;
-            box-shadow: 0 0 7px 3px #f0f0f0,
-            10px 10px 10px -10px #fbe251,
-            20px 20px 20px -10px #ffc408,
-            0 0 20px 15px #91f9fe,
-            50px 50px 100px 20px #e83015,
-            200px 200px 1000px 200px #670003;
+          width: var(--radius);
+          height: var(--radius);
+          border-radius: 50%;
+          box-shadow: 0 0 7px 3px #f0f0f0,
+          10px 10px 10px -10px #fbe251,
+          20px 20px 20px -10px #ffc408,
+          0 0 20px 15px #91f9fe,
+          50px 50px 100px 20px #e83015,
+          200px 200px 1000px 200px #670003;
 
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-            color: #fff;
-            font-size: 2rem;
+          color: #fff;
+          font-size: 2rem;
 
-            animation: var(--animation);
-        }
+          animation: var(--animation);
+      }
 
-        #content {
-            animation: var(--animation) reverse;
-        }
+      #content {
+          animation: var(--animation) reverse;
+      }
 
-        @keyframes rotate {
-            to {
-                transform: rotateZ(-1turn);
-            }
-        }
-    </style>
+      @keyframes rotate {
+          to {
+              transform: rotateZ(-1turn);
+          }
+      }
+  </style>
 </head>
 <body>
 <div id="container">
-    <div id="content">REFINE</div>
+  <div id="content">REFINE</div>
 </div>
 </body>
 </html>

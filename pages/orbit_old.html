@@ -1,94 +1,94 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans-CN">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>轨道</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-        }
+  <meta charset="UTF-8">
+  <title>轨道</title>
+  <style>
+      body {
+          margin: 0;
+          display: flex;
+      }
 
-        #container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+      #container {
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+      }
 
-        .orbit, .planet {
-            border-radius: 50%;
-        }
+      .orbit, .planet {
+          border-radius: 50%;
+      }
 
-        .orbit {
-            position: relative;
-            --orbit-radius: 200px;
-            --orbit-width: 2px;
-            width: var(--orbit-radius);
-            height: var(--orbit-radius);
-            border: solid var(--orbit-width);
-            display: flex;
-            justify-content: center;
-        }
+      .orbit {
+          position: relative;
+          --orbit-radius: 200px;
+          --orbit-width: 2px;
+          width: var(--orbit-radius);
+          height: var(--orbit-radius);
+          border: solid var(--orbit-width);
+          display: flex;
+          justify-content: center;
+      }
 
-        .orbit::after {
-            position: absolute;
-            align-self: center;
-            content: "";
-            display: block;
-            width: 4px;
-            height: 4px;
-            background-color: red;
-        }
+      .orbit::after {
+          position: absolute;
+          align-self: center;
+          content: "";
+          display: block;
+          width: 4px;
+          height: 4px;
+          background-color: red;
+      }
 
-        .planet {
-            --planet-radius: 40px;
+      .planet {
+          --planet-radius: 40px;
 
-            --y-offset: calc((var(--orbit-width) + var(--planet-radius)) / -2);
-            --origin-offset: calc((var(--planet-radius) + var(--orbit-radius) + var(--orbit-width)) / 2);
+          --y-offset: calc((var(--orbit-width) + var(--planet-radius)) / -2);
+          --origin-offset: calc((var(--planet-radius) + var(--orbit-radius) + var(--orbit-width)) / 2);
 
-            margin: 0 auto;
-            width: var(--planet-radius);
-            height: var(--planet-radius);
-            background-color: orangered;
-            transform-origin: 50% var(--origin-offset);
-            transform: translateY(var(--y-offset));
-            animation: rotate 4s linear infinite;
+          margin: 0 auto;
+          width: var(--planet-radius);
+          height: var(--planet-radius);
+          background-color: orangered;
+          transform-origin: 50% var(--origin-offset);
+          transform: translateY(var(--y-offset));
+          animation: rotate 4s linear infinite;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        .planet::before {
-            content: "";
-            display: block;
-            width: 1px;
-            height: 142vmax;
-            background-color: black;
-        }
+      .planet::before {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 142vmax;
+          background-color: black;
+      }
 
-        .planet:hover {
-            transform: translateY(var(--y-offset)) rotateZ(1turn);
-        }
+      .planet:hover {
+          transform: translateY(var(--y-offset)) rotateZ(1turn);
+      }
 
-        @keyframes rotate {
-            to {
-                transform: translateY(var(--y-offset)) rotateZ(1turn);
-            }
-        }
+      @keyframes rotate {
+          to {
+              transform: translateY(var(--y-offset)) rotateZ(1turn);
+          }
+      }
 
-        /* 可以用新的方法：orbit和planet同一层级，轨道半径设为planet位移量，orbit实际width为轨道半径- border的一半，保证planet中心在border一半的位置 */
-    </style>
+      /* 可以用新的方法：orbit和planet同一层级，轨道半径设为planet位移量，orbit实际width为轨道半径- border的一半，保证planet中心在border一半的位置 */
+  </style>
 </head>
 <body>
 <div id="container">
-    <div class="orbit">
-        <div class="planet"></div>
-    </div>
+  <div class="orbit">
+    <div class="planet"></div>
+  </div>
 </div>
 </body>
 </html>

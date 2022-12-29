@@ -1,55 +1,55 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans-CN">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>霓虹阴影</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="UTF-8">
+  <title>霓虹阴影</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          background-color: black;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        #wrapper,
-        #wrapper > * {
-            width: 200px;
-            height: 350px;
-        }
+      #wrapper,
+      #wrapper > * {
+          width: 200px;
+          height: 350px;
+      }
 
-        #wrapper {
-            position: relative;
-        }
+      #wrapper {
+          position: relative;
+      }
 
-        #wrapper > * {
-            position: absolute;
-            box-sizing: border-box;
-        }
+      #wrapper > * {
+          position: absolute;
+          box-sizing: border-box;
+      }
 
-        #wrapper::before {
-            display: block;
-            content: "";
-            position: absolute;
-            box-sizing: border-box;
-            width: 200px;
-            height: 350px;
-            box-shadow: 10px -10px 30px -10px magenta,
-            -10px 10px 30px -10px blue;
-            transform: rotate3d(-200, 350, 0, 25deg);
-        }
+      #wrapper::before {
+          display: block;
+          content: "";
+          position: absolute;
+          box-sizing: border-box;
+          width: 200px;
+          height: 350px;
+          box-shadow: 10px -10px 30px -10px magenta,
+          -10px 10px 30px -10px blue;
+          transform: rotate3d(-200, 350, 0, 25deg);
+      }
 
-        .content {
-            padding: 1em;
-            background-color: #000;
-        }
-    </style>
+      .content {
+          padding: 1em;
+          background-color: #000;
+      }
+  </style>
 </head>
 <body>
 <div id="wrapper">
-    <div class="content"></div>
+  <div class="content"></div>
 </div>
 </body>
 </html>

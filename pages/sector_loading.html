@@ -1,73 +1,73 @@
-<!doctype html>
-<html lang="zh-Hans-cmn-CN">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>扇形加载动画</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="utf-8">
+  <title>扇形加载动画</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        .container {
-            --duration: 2s;
-            position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-        }
+      .container {
+          --duration: 2s;
+          position: relative;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+      }
 
-        [class^="semicircle"] {
-            width: 100px;
-            height: 200px;
-            position: absolute;
-            transform-origin: 100% 50% 0;
-            background-color: lightsteelblue;
-            border-radius: 100% 0 0 100%/50% 0 0 50%;
-        }
+      [class^="semicircle"] {
+          width: 100px;
+          height: 200px;
+          position: absolute;
+          transform-origin: 100% 50% 0;
+          background-color: lightsteelblue;
+          border-radius: 100% 0 0 100%/50% 0 0 50%;
+      }
 
-        .container, .semicircle-bottom {
-            background-color: deepskyblue;
-        }
+      .container, .semicircle-bottom {
+          background-color: deepskyblue;
+      }
 
-        .semicircle-right {
-            left: 50%;
-            border-radius: 0 100% 100% 0/0 50% 50% 0;
-        }
+      .semicircle-right {
+          left: 50%;
+          border-radius: 0 100% 100% 0/0 50% 50% 0;
+      }
 
-        .semicircle-left {
-            animation: rotate var(--duration) linear forwards, hidden 0s var(--duration) forwards;
-        }
+      .semicircle-left {
+          animation: rotate var(--duration) linear forwards, hidden 0s var(--duration) forwards;
+      }
 
-        .semicircle-bottom {
-            animation: rotate var(--duration) linear var(--duration) forwards;
-        }
+      .semicircle-bottom {
+          animation: rotate var(--duration) linear var(--duration) forwards;
+      }
 
-        @keyframes rotate {
-            to {
-                transform: rotateZ(-180deg);
-            }
-        }
+      @keyframes rotate {
+          to {
+              transform: rotateZ(-180deg);
+          }
+      }
 
-        @keyframes hidden {
-            from {
-                visibility: visible;
-            }
-            to {
-                visibility: hidden;
-            }
-        }
-    </style>
-    <!--    <script src="scripts/vue2.6.12.js"></script>-->
+      @keyframes hidden {
+          from {
+              visibility: visible;
+          }
+          to {
+              visibility: hidden;
+          }
+      }
+  </style>
+  <!--    <script src="scripts/vue2.6.12.js"></script>-->
 </head>
 <body>
 <div class="container">
-    <div class="semicircle-right"></div>
-    <div class="semicircle-bottom"></div>
-    <div class="semicircle-left"></div>
+  <div class="semicircle-right"></div>
+  <div class="semicircle-bottom"></div>
+  <div class="semicircle-left"></div>
 </div>
 </body>
 </html>

@@ -1,53 +1,53 @@
-<!doctype html>
-<html lang="zh-Hans-cmn-CN">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>果冻摇晃动画</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-        }
+  <meta charset="utf-8">
+  <title>果冻摇晃动画</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+      }
 
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+      body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
 
-        div {
-            width: 200px;
-            height: 100px;
-            background-color: darkorange;
-            border-radius: 10px;
-        }
+      div {
+          width: 200px;
+          height: 100px;
+          background-color: darkorange;
+          border-radius: 10px;
+      }
 
-        div:hover {
-            --ani-duration: 0.25s;
-            animation-name: jelly-shake, jelly-shake-small;
-            animation-duration: var(--ani-duration);
-            animation-delay: 0, var(--ani-duration);
-        }
+      div:hover {
+          --ani-duration: 0.25s;
+          animation-name: jelly-shake, jelly-shake-small;
+          animation-duration: var(--ani-duration);
+          animation-delay: 0, var(--ani-duration);
+      }
 
-        @keyframes jelly-shake {
-            25% {
-                transform: scale(.8, 1.2);
-            }
-            75% {
-                transform: scale(1.2, .8);
-            }
-        }
+      @keyframes jelly-shake {
+          25% {
+              transform: scale(.8, 1.2);
+          }
+          75% {
+              transform: scale(1.2, .8);
+          }
+      }
 
-        @keyframes jelly-shake-small {
-            25% {
-                transform: scale(.9, 1.1);
-            }
-            75% {
-                transform: scale(1.1, .9);
-            }
-        }
-    </style>
+      @keyframes jelly-shake-small {
+          25% {
+              transform: scale(.9, 1.1);
+          }
+          75% {
+              transform: scale(1.1, .9);
+          }
+      }
+  </style>
 </head>
 <body>
 <div></div>

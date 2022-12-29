@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>flex动画</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-        }
+  <meta charset="utf-8">
+  <title>flex动画</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+      }
 
-        #container {
-            display: flex;
-        }
+      #container {
+          display: flex;
+      }
 
-        #container > * {
-            height: 100vh;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            flex: 1;
-            transition: flex-grow 0.25s;
-        }
+      #container > * {
+          height: 100vh;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          flex: 1;
+          transition: flex-grow 0.25s;
+      }
 
-        #container > :hover {
-            flex-grow: 2;
-        }
+      #container > :hover {
+          flex-grow: 2;
+      }
 
-        #d1 {
-            background-image: url("../images/assets/saber.png");
-        }
+      #d1 {
+          background-image: url("../images/assets/saber.png");
+      }
 
-        #d2 {
-            background-image: url("../images/assets/rin.png");
-        }
+      #d2 {
+          background-image: url("../images/assets/rin.png");
+      }
 
-        #d3 {
-            background-image: url("../images/assets/sakura.png");
-        }
-    </style>
+      #d3 {
+          background-image: url("../images/assets/sakura.png");
+      }
+  </style>
 </head>
 <body>
 <div id="container">
-    <div id="d1"></div>
-    <div id="d2"></div>
-    <div id="d3"></div>
+  <div id="d1"></div>
+  <div id="d2"></div>
+  <div id="d3"></div>
 </div>
 </body>
 </html>

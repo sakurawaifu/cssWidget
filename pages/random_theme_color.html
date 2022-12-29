@@ -1,70 +1,70 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>随机主题色</title>
-    <style>
-        :root {
-            --theme-color: initial;
-            background-color: var(--theme-color);
-        }
+  <meta charset="utf-8">
+  <title>随机主题色</title>
+  <style>
+      :root {
+          --theme-color: initial;
+          background-color: var(--theme-color);
+      }
 
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-        }
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+      }
 
-        button {
-            position: relative;
-            box-sizing: border-box;
-            margin: auto;
-            padding: 0.5em 1em;
-            border: none;
-            background-color: transparent;
-            color: var(--theme-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+      button {
+          position: relative;
+          box-sizing: border-box;
+          margin: auto;
+          padding: 0.5em 1em;
+          border: none;
+          background-color: transparent;
+          color: var(--theme-color);
+          font-size: 1.5rem;
+          cursor: pointer;
+      }
 
-        button::before {
-            position: absolute;
-            content: '';
-            top: 0;
-            left: 0;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            background-color: var(--theme-color);
-            filter: invert(1);
-            transition: box-shadow 0.1s;
-        }
+      button::before {
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          background-color: var(--theme-color);
+          filter: invert(1);
+          transition: box-shadow 0.1s;
+      }
 
-        button:hover::before {
-            box-shadow: 0 0 8px 2px var(--theme-color);
-        }
+      button:hover::before {
+          box-shadow: 0 0 8px 2px var(--theme-color);
+      }
 
-        button:active::before {
-            box-shadow: none;
-        }
-    </style>
+      button:active::before {
+          box-shadow: none;
+      }
+  </style>
 </head>
 <body>
 <button id="btn">
-    <span class="text">随机皮肤</span>
+  <span class="text">随机皮肤</span>
 </button>
 <script>
-    document.documentElement.style.setProperty('--theme-color', localStorage.getItem('theme-color') || 'initial')
+  document.documentElement.style.setProperty('--theme-color', localStorage.getItem('theme-color') || 'initial')
 
-    const randomNumber = () => ~~(Math.random() * 256)
-    document.getElementById('btn').addEventListener('click', () => {
-        const r = randomNumber()
-        const g = randomNumber()
-        const b = randomNumber()
-        const color = `rgb\(${r},${g},${b}\)`
-        localStorage.setItem('theme-color', color)
-        document.documentElement.style.setProperty('--theme-color', color)
-    })
+  const randomNumber = () => ~~(Math.random() * 256)
+  document.getElementById('btn').addEventListener('click', () => {
+    const r = randomNumber()
+    const g = randomNumber()
+    const b = randomNumber()
+    const color = `rgb\(${r},${g},${b}\)`
+    localStorage.setItem('theme-color', color)
+    document.documentElement.style.setProperty('--theme-color', color)
+  })
 </script>
 </body>
 </html>

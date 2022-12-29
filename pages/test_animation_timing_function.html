@@ -1,51 +1,51 @@
-<!doctype html>
-<html lang="zh-Hans-cmn-CN">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>测试时序函数图像</title>
-    <meta charset="utf-8">
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-        }
+  <title>测试时序函数图像</title>
+  <meta charset="utf-8">
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+      }
 
-        #ani {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            animation: ani 1s cubic-bezier(1, 0, 1, 0);
-        }
+      #ani {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+          animation: ani 1s cubic-bezier(1, 0, 1, 0);
+      }
 
-        #container {
-            position: fixed;
-            top: 50%;
-            left: 0;
+      #container {
+          position: fixed;
+          top: 50%;
+          left: 0;
 
-            transform-origin: 0 0;
-            transform: rotateZ(-90deg);
-        }
+          transform-origin: 0 0;
+          transform: rotateZ(-90deg);
+      }
 
-        #x-axis {
-            width: 100vh;
-            height: 1px;
-            position: fixed;
-            top: calc(50% - 100px);
-            left: 0;
-            background-color: black;
-        }
+      #x-axis {
+          width: 100vh;
+          height: 1px;
+          position: fixed;
+          top: calc(50% - 100px);
+          left: 0;
+          background-color: black;
+      }
 
-        @keyframes ani {
-            from {
-                width: 100px;
-            }
-            50% {
-                width: 150px;
-            }
-            to {
-                width: 200px;
-            }
-        }
-    </style>
+      @keyframes ani {
+          from {
+              width: 100px;
+          }
+          50% {
+              width: 150px;
+          }
+          to {
+              width: 200px;
+          }
+      }
+  </style>
 </head>
 <body>
 <!-- x轴表时间，y轴表时刻对应的属性值 -->
@@ -53,37 +53,37 @@
 <div id="container"></div>
 <div id="x-axis"></div>
 <script>
-    let ani = document.getElementById('ani')
-    let container = document.getElementById('container')
-    let handler
+  let ani = document.getElementById('ani')
+  let container = document.getElementById('container')
+  let handler
 
-    function createLine(width) {
-        let line = document.createElement('div')
-        line.style.width = width
-        line.style.height = '1px'
-        line.style.backgroundColor = 'red'
-        return line
-    }
+  function createLine(width) {
+    let line = document.createElement('div')
+    line.style.width = width
+    line.style.height = '1px'
+    line.style.backgroundColor = 'red'
+    return line
+  }
 
-    for (let i = 0; i < 100; i++) {
-        container.appendChild(createLine(0))
-    }
+  for (let i = 0; i < 100; i++) {
+    container.appendChild(createLine(0))
+  }
 
-    let tid
-    ani.addEventListener('animationstart', function () {
-        container.children[0].style.width = getComputedStyle(ani).width
-        tid = setInterval((function () {
-            let cur = 1
-            return function () {
-                if (cur >= 100) {
-                    clearInterval(tid)
-                } else {
-                    container.children[cur++].style.width = getComputedStyle(ani).width
-                }
-            }
-        })(), 10)
-    })
-    ani.addEventListener('animationend', () => clearInterval(tid))
+  let tid
+  ani.addEventListener('animationstart', function() {
+    container.children[0].style.width = getComputedStyle(ani).width
+    tid = setInterval((function() {
+      let cur = 1
+      return function() {
+        if (cur >= 100) {
+          clearInterval(tid)
+        } else {
+          container.children[cur++].style.width = getComputedStyle(ani).width
+        }
+      }
+    })(), 10)
+  })
+  ani.addEventListener('animationend', () => clearInterval(tid))
 </script>
 </body>
 </html>

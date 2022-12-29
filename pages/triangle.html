@@ -1,43 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>三角绕重心旋转</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="utf-8">
+  <title>三角绕重心旋转</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
 
-        #t {
-            width: 0;
-            height: 0;
-            padding: 0;
-            margin: 0;
-            border-width: 86.6025px 50px 0;
-            border-style: solid;
-            border-color: transparent;
-            border-top-color: purple;
+      #t {
+          width: 0;
+          height: 0;
+          padding: 0;
+          margin: 0;
+          border-width: 86.6025px 50px 0;
+          border-style: solid;
+          border-color: transparent;
+          border-top-color: purple;
 
-            transition: linear .2s;
-            transform-origin: 50% 33.3%;
-            transform: translateY(16.666%);
-        }
+          transition: linear .2s;
+          transform-origin: 50% 33.3%;
+          transform: translateY(16.666%);
+      }
 
-        #t:hover {
-            transform: translateY(16.666%) rotateZ(3720deg);
-        }
+      #t:hover {
+          transform: translateY(16.666%) rotateZ(3720deg);
+      }
 
-        #p {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background-color: gold;
-        }
-    </style>
+      #p {
+          position: fixed;
+          width: 2px;
+          height: 2px;
+          background-color: gold;
+      }
+  </style>
 </head>
 <body>
 <div id="t"></div>

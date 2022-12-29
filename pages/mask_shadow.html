@@ -1,67 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans-CN">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>重叠区域显示阴影</title>
-    <style>
-        body {
-            margin: 0;
-        }
+  <meta charset="utf-8">
+  <title>重叠区域显示阴影</title>
+  <style>
+      body {
+          margin: 0;
+      }
 
-        .container {
-            --bg-setting: left center/cover no-repeat;
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
+      .container {
+          --bg-setting: left center/cover no-repeat;
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+      }
 
-        .container > .wrapper,
-        .container > .mask {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: flex-end;
-        }
+      .container > .wrapper,
+      .container > .mask {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+      }
 
-        .wrapper {
-            background: url("../images/assets/mask_shadow_bg.png") var(--bg-setting) fixed;
-        }
+      .wrapper {
+          background: url("../images/assets/mask_shadow_bg.png") var(--bg-setting) fixed;
+      }
 
-        .mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            -webkit-mask: url("../images/assets/mask_shadow_mask.png") var(--bg-setting);
-        }
+      .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          -webkit-mask: url("../images/assets/mask_shadow_mask.png") var(--bg-setting);
+      }
 
-        .wrapper > .main-container,
-        .mask > .main-mirror {
-            --margin: 9.2592vh;
-            margin: var(--margin) var(--margin) var(--margin) 0;
-            flex: 0 0 59.7916%;
-            border-radius: 28px;
-        }
+      .wrapper > .main-container,
+      .mask > .main-mirror {
+          --margin: 9.2592vh;
+          margin: var(--margin) var(--margin) var(--margin) 0;
+          flex: 0 0 59.7916%;
+          border-radius: 28px;
+      }
 
-        .mask > .main-mirror {
-            box-shadow: 0 0 20px 0 #000d;
-        }
+      .mask > .main-mirror {
+          box-shadow: 0 0 20px 0 #000d;
+      }
 
-        .wrapper > .main-container {
-            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.27));
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    </style>
+      .wrapper > .main-container {
+          background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.27));
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+  </style>
 </head>
 <body>
 <div class="container">
-    <div class="wrapper">
-        <main class="main-container"></main>
-    </div>
-    <div class="mask">
-        <div class="main-mirror"></div>
-    </div>
+  <div class="wrapper">
+    <main class="main-container"></main>
+  </div>
+  <div class="mask">
+    <div class="main-mirror"></div>
+  </div>
 </div>
 </body>
 </html>

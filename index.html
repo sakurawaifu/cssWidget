@@ -1,209 +1,209 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>css widget</title>
-    <style>
-        html {
-            background-color: rgba(254, 223, 225, 0.15);
-        }
+  <meta charset="utf-8">
+  <title>css widget</title>
+  <style>
+      html {
+          background-color: rgba(254, 223, 225, 0.15);
+      }
 
-        body {
-            margin: 0;
-        }
+      body {
+          margin: 0;
+      }
 
-        header {
-            padding: 1.5em;
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            color: #d84d6d;
-        }
+      header {
+          padding: 1.5em;
+          font-size: 2rem;
+          font-weight: bold;
+          text-align: center;
+          color: #d84d6d;
+      }
 
-        main {
-            padding: 0 90px 50px;
-        }
+      main {
+          padding: 0 90px 50px;
+      }
 
-        /* item列表样式 */
-        .item-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px 40px;
-        }
+      /* item列表样式 */
+      .item-list {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 30px 40px;
+      }
 
-        .item {
-            flex: 0 0 240px;
-            aspect-ratio: 16 / 9;
+      .item {
+          flex: 0 0 240px;
+          aspect-ratio: 16 / 9;
 
-            perspective: 1000px;
-            user-select: none;
-            cursor: pointer;
-        }
+          perspective: 1000px;
+          user-select: none;
+          cursor: pointer;
+      }
 
-        /* 包一层是为了避免变形后可交互区域减小导致的抖动问题 */
-        .item > .wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
+      /* 包一层是为了避免变形后可交互区域减小导致的抖动问题 */
+      .item > .wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
 
-            box-shadow: 1.1px 1.5px 5.3px rgba(0, 0, 0, 0.027),
-            3.6px 4.9px 17.9px rgba(0, 0, 0, 0.03),
-            16px 22px 80px rgba(0, 0, 0, 0.05);
+          box-shadow: 1.1px 1.5px 5.3px rgba(0, 0, 0, 0.027),
+          3.6px 4.9px 17.9px rgba(0, 0, 0, 0.03),
+          16px 22px 80px rgba(0, 0, 0, 0.05);
 
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
+          transform-style: preserve-3d;
+          transition: transform 0.6s;
+      }
 
-        .item:hover > .wrapper {
-            transform: rotateY(180deg);
-        }
+      .item:hover > .wrapper {
+          transform: rotateY(180deg);
+      }
 
-        .item > .wrapper > .cover,
-        .item > .wrapper > .backface {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-        }
+      .item > .wrapper > .cover,
+      .item > .wrapper > .backface {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+      }
 
-        .item > .wrapper > .cover {
-            object-fit: cover;
-        }
+      .item > .wrapper > .cover {
+          object-fit: cover;
+      }
 
-        .item > .wrapper > .backface {
-            z-index: -1;
-            transform: rotateY(180deg);
-            font-size: 1.2rem;
-            font-weight: bold;
-            background-color: #fff;
-            color: #333;
+      .item > .wrapper > .backface {
+          z-index: -1;
+          transform: rotateY(180deg);
+          font-size: 1.2rem;
+          font-weight: bold;
+          background-color: #fff;
+          color: #333;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+  </style>
 </head>
 <body>
 <header>Homura Suki~♥</header>
 <main>
-    <div class="item-list">
-        <a class="item" href="pages/jelly_shake_animation.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/jelly_shake_animation.png" alt="封面">
-                <div class="backface">果冻摇晃动画</div>
-            </div>
-        </a>
-        <a class="item" href="pages/flex_animation_fsn.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/flex_animation_fsn.png" alt="封面">
-                <div class="backface">flex动画</div>
-            </div>
-        </a>
-        <a class="item" href="pages/ant_design_like_number_input.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/ant_design_like_number_input.png" alt="封面">
-                <div class="backface">仿ant design数字输入</div>
-            </div>
-        </a>
-        <a class="item" href="pages/heart_beat_animation.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/heart_beat_animation.png" alt="封面">
-                <div class="backface">心跳动画</div>
-            </div>
-        </a>
-        <a class="item" href="pages/injected_like.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/injected_like.png" alt="封面">
-                <div class="backface">仿injected MV动画</div>
-            </div>
-        </a>
-        <a class="item" href="pages/neon_shadow.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/neon_shadow.png" alt="封面">
-                <div class="backface">霓虹阴影</div>
-            </div>
-        </a>
-        <a class="item" href="pages/cube.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/cube.png" alt="封面">
-                <div class="backface">CSS立方体</div>
-            </div>
-        </a>
-        <a class="item" href="pages/orbit_old.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/orbit_old.png" alt="封面">
-                <div class="backface">轨道</div>
-            </div>
-        </a>
-        <a class="item" href="pages/random_theme_color.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/random_theme_color.png" alt="封面">
-                <div class="backface">随机主题色</div>
-            </div>
-        </a>
-        <a class="item" href="pages/sakura_cube_wave.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/sakura_cube_wave.png" alt="封面">
-                <div class="backface">樱色立方体波浪</div>
-            </div>
-        </a>
-        <a class="item" href="pages/sector_loading.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/sector_loading.png" alt="封面">
-                <div class="backface">扇形加载动画</div>
-            </div>
-        </a>
-        <a class="item" href="pages/triangle.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/triangle.png" alt="封面">
-                <div class="backface">三角绕重心旋转</div>
-            </div>
-        </a>
-        <a class="item" href="pages/test_animation_timing_function.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/test_animation_timing_function.png" alt="封面">
-                <div class="backface">测试时序函数图像</div>
-            </div>
-        </a>
-        <a class="item" href="pages/double_square_rotate.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/double_square_rotate.png" alt="封面">
-                <div class="backface">双矩形旋转效果</div>
-            </div>
-        </a>
-        <a class="item" href="pages/fushikiri.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/fushikiri.png" alt="封面">
-                <div class="backface">不死斬り</div>
-            </div>
-        </a>
-        <a class="item" href="pages/eclipse.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/eclipse.png" alt="封面">
-                <div class="backface">日蚀slim</div>
-            </div>
-        </a>
-        <a class="item" href="pages/mask_shadow.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/mask_shadow.png" alt="封面">
-                <div class="backface">重叠区域显示阴影</div>
-            </div>
-        </a>
-        <a class="item" href="pages/energy cube.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/energy cube.png" alt="封面">
-                <div class="backface">能量立方体</div>
-            </div>
-        </a>
-        <a class="item" href="pages/color_circle.html" target="_blank">
-            <div class="wrapper">
-                <img class="cover" src="./images/covers/color_circle.png" alt="封面">
-                <div class="backface">色相环</div>
-            </div>
-        </a>
-    </div>
+  <div class="item-list">
+    <a class="item" href="pages/jelly_shake_animation.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/jelly_shake_animation.png" alt="封面">
+        <div class="backface">果冻摇晃动画</div>
+      </div>
+    </a>
+    <a class="item" href="pages/flex_animation_fsn.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/flex_animation_fsn.png" alt="封面">
+        <div class="backface">flex动画</div>
+      </div>
+    </a>
+    <a class="item" href="pages/ant_design_like_number_input.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/ant_design_like_number_input.png" alt="封面">
+        <div class="backface">仿ant design数字输入</div>
+      </div>
+    </a>
+    <a class="item" href="pages/heart_beat_animation.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/heart_beat_animation.png" alt="封面">
+        <div class="backface">心跳动画</div>
+      </div>
+    </a>
+    <a class="item" href="pages/injected_like.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/injected_like.png" alt="封面">
+        <div class="backface">仿injected MV动画</div>
+      </div>
+    </a>
+    <a class="item" href="pages/neon_shadow.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/neon_shadow.png" alt="封面">
+        <div class="backface">霓虹阴影</div>
+      </div>
+    </a>
+    <a class="item" href="pages/cube.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/cube.png" alt="封面">
+        <div class="backface">CSS立方体</div>
+      </div>
+    </a>
+    <a class="item" href="pages/orbit_old.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/orbit_old.png" alt="封面">
+        <div class="backface">轨道</div>
+      </div>
+    </a>
+    <a class="item" href="pages/random_theme_color.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/random_theme_color.png" alt="封面">
+        <div class="backface">随机主题色</div>
+      </div>
+    </a>
+    <a class="item" href="pages/sakura_cube_wave.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/sakura_cube_wave.png" alt="封面">
+        <div class="backface">樱色立方体波浪</div>
+      </div>
+    </a>
+    <a class="item" href="pages/sector_loading.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/sector_loading.png" alt="封面">
+        <div class="backface">扇形加载动画</div>
+      </div>
+    </a>
+    <a class="item" href="pages/triangle.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/triangle.png" alt="封面">
+        <div class="backface">三角绕重心旋转</div>
+      </div>
+    </a>
+    <a class="item" href="pages/test_animation_timing_function.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/test_animation_timing_function.png" alt="封面">
+        <div class="backface">测试时序函数图像</div>
+      </div>
+    </a>
+    <a class="item" href="pages/double_square_rotate.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/double_square_rotate.png" alt="封面">
+        <div class="backface">双矩形旋转效果</div>
+      </div>
+    </a>
+    <a class="item" href="pages/fushikiri.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/fushikiri.png" alt="封面">
+        <div class="backface">不死斬り</div>
+      </div>
+    </a>
+    <a class="item" href="pages/eclipse.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/eclipse.png" alt="封面">
+        <div class="backface">日蚀slim</div>
+      </div>
+    </a>
+    <a class="item" href="pages/mask_shadow.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/mask_shadow.png" alt="封面">
+        <div class="backface">重叠区域显示阴影</div>
+      </div>
+    </a>
+    <a class="item" href="pages/energy cube.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/energy cube.png" alt="封面">
+        <div class="backface">能量立方体</div>
+      </div>
+    </a>
+    <a class="item" href="pages/color_circle.html" target="_blank">
+      <div class="wrapper">
+        <img class="cover" src="./images/covers/color_circle.png" alt="封面">
+        <div class="backface">色相环</div>
+      </div>
+    </a>
+  </div>
 </main>
 </body>
 </html>
