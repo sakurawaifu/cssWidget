@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>模式切换</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .mode-switch {
+          --transition-duration: 0.3s;
+          --transition-timing-function: ease;
+          --transition-except-property: var(--transition-duration) var(--transition-timing-function);
+
+          --switch-width: 56px;
+          --switch-height: 26px;
+
+          border-radius: 9999px;
+          padding: 2px;
+          width: var(--switch-width);
+          height: var(--switch-height);
+          cursor: pointer;
+      }
+
+      .handle {
+          border-radius: 50%;
+          height: 100%;
+          aspect-ratio: 1;
+      }
+
+      .handle > .icon {
+          width: 100%;
+          height: 100%;
+      }
+
+      /* theme mode */
+      /*day*/
+      body {
+          --theme-color-bg: #fff;
+          background-color: var(--theme-color-bg);
+          transition: background-color var(--transition-except-property);
+      }
+
+      .mode-switch {
+          background-color: #03a9f4;
+          border-color: #333;
+
+          transition-property: background-color, border-color;
+          transition: background-color var(--transition-except-property);
+      }
+
+      .handle {
+          transition: transform var(--transition-except-property);
+      }
+
+      .handle > .icon {
+          fill: #ffd700;
+      }
+
+      .handle > .icon.night {
+          display: none;
+      }
+
+      /*night*/
+      body.night {
+          --theme-color-bg: #061121;
+      }
+
+      body.night > .mode-switch {
+          background-color: #235198;
+          border-color: #fff;
+      }
+
+      body.night > .mode-switch > .handle {
+          transform: translateX(calc(var(--switch-width) - var(--switch-height))) rotateZ(1turn);
+      }
+
+      body.night > .mode-switch > .handle > .icon {
+          fill: #fff;
+      }
+
+      body.night > .mode-switch > .handle > .icon.sun {
+          display: none;
+      }
+
+      body.night > .mode-switch > .handle > .icon.night {
+          display: unset;
+      }
+  </style>
+</head>
+<body>
+<div class="mode-switch">
+  <div class="handle">
+    <svg t="1672131941367" class="sun icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         p-id="2515">
+      <path
+        d="M512 256a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-85.333334 0v85.333333a42.666667 42.666667 0 0 0 42.666667 42.666667zM896 469.333333h-85.333333a42.666667 42.666667 0 0 0 0 85.333334h85.333333a42.666667 42.666667 0 0 0 0-85.333334zM256 512a42.666667 42.666667 0 0 0-42.666667-42.666667H128a42.666667 42.666667 0 0 0 0 85.333334h85.333333a42.666667 42.666667 0 0 0 42.666667-42.666667zM265.386667 213.333333a42.666667 42.666667 0 0 0-59.306667 62.72l61.44 59.306667a42.666667 42.666667 0 0 0 31.146667 11.946667 42.666667 42.666667 0 0 0 30.72-13.226667 42.666667 42.666667 0 0 0 0-60.16zM725.333333 347.306667a42.666667 42.666667 0 0 0 29.44-11.946667l61.44-59.306667A42.666667 42.666667 0 0 0 758.613333 213.333333l-61.44 60.586667a42.666667 42.666667 0 0 0 0 60.16 42.666667 42.666667 0 0 0 28.16 13.226667zM512 768a42.666667 42.666667 0 0 0-42.666667 42.666667v85.333333a42.666667 42.666667 0 0 0 85.333334 0v-85.333333a42.666667 42.666667 0 0 0-42.666667-42.666667zM756.48 688.64a42.666667 42.666667 0 0 0-59.306667 61.44L758.613333 810.666667a42.666667 42.666667 0 0 0 29.44 11.946666 42.666667 42.666667 0 0 0 30.72-12.8 42.666667 42.666667 0 0 0 0-60.586666zM267.52 688.64l-61.44 59.306667a42.666667 42.666667 0 0 0 0 60.586666 42.666667 42.666667 0 0 0 30.72 12.8 42.666667 42.666667 0 0 0 28.586667-10.666666l61.44-59.306667a42.666667 42.666667 0 0 0-59.306667-61.44zM512 341.333333a170.666667 170.666667 0 1 0 170.666667 170.666667 170.666667 170.666667 0 0 0-170.666667-170.666667z"
+        p-id="2516"></path>
+    </svg>
+
+    <svg t="1672132036504" class="night icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         p-id="4664">
+      <path
+        d="M395.093333 237.226667A316.16 316.16 0 0 0 384 320a320 320 0 0 0 320 320 316.16 316.16 0 0 0 82.773333-11.093333 298.666667 298.666667 0 1 1-391.68-391.68M512 128a384 384 0 1 0 384 384 417.92 417.92 0 0 0-3.84-52.053333A234.666667 234.666667 0 1 1 564.053333 131.84 417.92 417.92 0 0 0 512 128z"
+        p-id="4665"></path>
+    </svg>
+  </div>
+</div>
+
+<script>
+  const NIGHT_MODE_CLASS_NAME = 'night'
+
+  const modeSwitch = document.getElementsByClassName('mode-switch')[0]
+  const sunIcon = document.querySelector('.icon.sun')
+  const nightIcon = document.querySelector('.icon.night')
+
+  let isNightMode = false
+
+  modeSwitch.addEventListener('click', () => {
+    isNightMode = !isNightMode
+
+    const targetApi = isNightMode ? 'add' : 'remove'
+    document.body.classList[targetApi](NIGHT_MODE_CLASS_NAME)
+  })
+</script>
+</body>
+</html>
