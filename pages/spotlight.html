@@ -16,18 +16,31 @@
           align-items: center;
       }
 
-      .description {
-          margin-top: 20px;
+      .manual {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+
+          border: solid 1px;
+          padding: 8px;
+          width: 20em;
+      }
+
+      .manual > header {
+          font-size: 1.2em;
+      }
+
+      .manual .reset-cheats {
+
       }
 
       .scene {
-          --light-radius: 80px;
           --light-x: 50%;
           --light-y: 50%;
           border: solid 8px pink;
           width: 1000px;
-          height: 600px;
-          background: url("../images/material/wallhaven-85o6mj.jpg") center/contain no-repeat;
+          aspect-ratio: 16 / 9;
+          background: var(--bg-url) center/contain no-repeat;
       }
 
       .scene::after {
@@ -43,21 +56,44 @@
           -webkit-mask-size: 200% 200%;
           -webkit-mask-position: var(--mask-position-x) var(--mask-position-y);
       }
+
+      .bg-url-input {
+          margin-top: 10px;
+      }
+
+      .bg-url-input input {
+          border: none;
+          width: 30em;
+          outline: none;
+          background-color: transparent;
+          color: inherit;
+          font-size: 20px;
+      }
   </style>
 </head>
 <body>
 <div class="scene"></div>
-<div class="description">
-  <header>操作</header>
+<div class="bg-url-input">
+  <label>输入背景图片url：<input type="text" autofocus></label>
+</div>
+
+<div class="manual">
+  <header>操作说明</header>
+  <hr>
   <div>移动鼠标：移动聚光灯</div>
   <div>滚动滚轮：放大/缩小聚光灯</div>
   <div>点击鼠标中键：重置聚光灯大小(80px)</div>
+  <hr>
+  <div>更改背景图片：输入 url 后，按下Enter键（图片可能有防盗链处理，此时会无法加载）</div>
+  <div>重置背景图片：输入 <span class="reset-cheats">homura is author's waifu</span> 后，按下Enter键</div>
 </div>
 
 <script>
+  // light position
   const scene = document.getElementsByClassName('scene')[0]
   const sceneWidth = scene.offsetWidth
   const sceneHeight = scene.offsetHeight
+
   scene.addEventListener('mousemove', ({ offsetX, offsetY }) => {
     const xPercentage = offsetX / sceneWidth
     const yPercentage = offsetY / sceneHeight
@@ -65,9 +101,11 @@
     scene.style.setProperty('--light-y', yPercentage * 100 + '%')
   })
 
+  // light radius
   const initRadius = 80
   let radius = initRadius
   scene.style.setProperty('--light-radius', radius + 'px')
+
   scene.addEventListener('wheel', ({ deltaY }) => {
     deltaY < 0 ? radius += 2 : radius -= 2
     if (radius < 0) radius = 0
@@ -76,6 +114,19 @@
   scene.addEventListener('auxclick', (e) => {
     if (e.button === 1) {
       scene.style.setProperty('--light-radius', initRadius + 'px')
+    }
+  })
+
+  // url input
+  const resetCheats = 'homura is author\'s waifu'
+  const initUrl = '../images/material/wallhaven-85o6mj.jpg'
+  scene.style.setProperty('--bg-url', `url("${initUrl}")`)
+
+  const input = document.getElementsByTagName('input')[0]
+  input.addEventListener('keydown', ({ key }) => {
+    if (key === 'Enter') {
+      const url = input.value === resetCheats ? initUrl : input.value
+      scene.style.setProperty('--bg-url', `url("${url}")`)
     }
   })
 </script>
