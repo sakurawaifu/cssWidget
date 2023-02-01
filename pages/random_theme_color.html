@@ -56,12 +56,17 @@
 <script>
   document.documentElement.style.setProperty('--theme-color', localStorage.getItem('theme-color') || 'initial')
 
-  const randomNumber = () => ~~(Math.random() * 256)
+  const randomComponent = () => ~~(Math.random() * 256)
+
+  const randomRGB = () => {
+    const R = randomComponent()
+    const G = randomComponent()
+    const B = randomComponent()
+    return `rgb(${R}, ${G}, ${B})`
+  }
+
   document.getElementById('btn').addEventListener('click', () => {
-    const r = randomNumber()
-    const g = randomNumber()
-    const b = randomNumber()
-    const color = `rgb\(${r},${g},${b}\)`
+    const color = randomRGB()
     localStorage.setItem('theme-color', color)
     document.documentElement.style.setProperty('--theme-color', color)
   })
