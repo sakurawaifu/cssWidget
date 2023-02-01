@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>聚光灯</title>
+  <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          color: #fff;
+          background-color: #000;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .description {
+          margin-top: 20px;
+      }
+
+      .scene {
+          --light-radius: 80px;
+          --light-x: 50%;
+          --light-y: 50%;
+          border: solid 8px pink;
+          width: 1000px;
+          height: 600px;
+          background: url("../images/material/wallhaven-85o6mj.jpg") center/contain no-repeat;
+      }
+
+      .scene::after {
+          --mask-position-x: calc(100% - var(--light-x));
+          --mask-position-y: calc(100% - var(--light-y));
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          backdrop-filter: grayscale(1) brightness(0.55);
+          -webkit-mask: radial-gradient(circle, transparent var(--light-radius), #fff var(--light-radius)) var(--mask-position-x) var(--mask-position-y) / 200% 200%;
+      }
+  </style>
+</head>
+<body>
+<div class="scene"></div>
+<div class="description">
+  <header>操作</header>
+  <div>移动鼠标：移动聚光灯</div>
+  <div>滚动滚轮：放大/缩小聚光灯</div>
+  <div>点击鼠标中键：重置聚光灯大小(80px)</div>
+</div>
+
+<script>
+  const scene = document.getElementsByClassName('scene')[0]
+  const sceneWidth = scene.offsetWidth
+  const sceneHeight = scene.offsetHeight
+  scene.addEventListener('mousemove', ({ offsetX, offsetY }) => {
+    const xPercentage = offsetX / sceneWidth
+    const yPercentage = offsetY / sceneHeight
+    scene.style.setProperty('--light-x', xPercentage * 100 + '%')
+    scene.style.setProperty('--light-y', yPercentage * 100 + '%')
+  })
+
+  const initRadius = 80
+  let radius = initRadius
+  scene.style.setProperty('--light-radius', radius + 'px')
+  scene.addEventListener('wheel', ({ deltaY }) => {
+    deltaY < 0 ? radius += 2 : radius -= 2
+    if (radius < 0) radius = 0
+    scene.style.setProperty('--light-radius', radius + 'px')
+  })
+  scene.addEventListener('auxclick', (e) => {
+    if (e.button === 1) {
+      scene.style.setProperty('--light-radius', initRadius + 'px')
+    }
+  })
+</script>
+</body>
+</html>
