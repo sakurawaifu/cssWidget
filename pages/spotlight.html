@@ -33,12 +33,15 @@
       .scene::after {
           --mask-position-x: calc(100% - var(--light-x));
           --mask-position-y: calc(100% - var(--light-y));
+          --light-radius-midpoint: calc(var(--light-radius) * 0.8);
           content: "";
           display: block;
           width: 100%;
           height: 100%;
-          backdrop-filter: grayscale(1) brightness(0.55);
-          -webkit-mask: radial-gradient(circle, transparent var(--light-radius), #fff var(--light-radius)) var(--mask-position-x) var(--mask-position-y) / 200% 200%;
+          backdrop-filter: grayscale(0.7) brightness(0.55);
+          -webkit-mask-image: radial-gradient(circle, transparent 0%, var(--light-radius-midpoint), #fff var(--light-radius));
+          -webkit-mask-size: 200% 200%;
+          -webkit-mask-position: var(--mask-position-x) var(--mask-position-y);
       }
   </style>
 </head>
