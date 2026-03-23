@@ -4,140 +4,147 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT4VRT1WVF"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    window.dataLayer = window.dataLayer || []
 
-    gtag('config', 'G-GT4VRT1WVF');
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+
+    gtag('js', new Date())
+
+    gtag('config', 'G-GT4VRT1WVF')
   </script>
   <meta charset="utf-8">
   <title>聚光灯</title>
   <style>
-      body {
-          margin: 0;
-          height: 100vh;
-          color: #fff;
-          background-color: #000;
+    body {
+      margin: 0;
+      height: 100vh;
+      color: #fff;
+      background-color: #000;
 
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .manual {
-          position: fixed;
-          top: 20px;
-          right: 20px;
+    .manual {
+      position: fixed;
+      top: 20px;
+      right: 20px;
 
-          border: solid 1px;
-          padding: 8px;
-          width: 20em;
-      }
+      border: solid 1px;
+      padding: 8px;
+      width: 20em;
+    }
 
-      .manual > header {
-          font-size: 1.2em;
-      }
+    .manual > header {
+      font-size: 1.2em;
+    }
 
-      .manual .reset-cheats {
+    .manual .reset-cheats {
 
-      }
+    }
 
-      .scene {
-          --light-x: 50%;
-          --light-y: 50%;
-          border: solid 8px pink;
-          width: 1000px;
-          aspect-ratio: 16 / 9;
-          background: var(--bg-url) center/contain no-repeat;
-      }
+    .scene {
+      --light-x: 50%;
+      --light-y: 50%;
+      border: solid 8px pink;
+      width: 1000px;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-url) center/contain no-repeat;
+    }
 
-      .scene::after {
-          --mask-position-x: calc(100% - var(--light-x));
-          --mask-position-y: calc(100% - var(--light-y));
-          --light-radius-midpoint: calc(var(--light-radius) * 0.8);
-          content: "";
-          display: block;
-          width: 100%;
-          height: 100%;
-          backdrop-filter: grayscale(0.75) brightness(0.3);
-          -webkit-mask-image: radial-gradient(circle, transparent 0%, var(--light-radius-midpoint), #fff var(--light-radius));
-          -webkit-mask-size: 200% 200%;
-          -webkit-mask-position: var(--mask-position-x) var(--mask-position-y);
-      }
+    .scene::after {
+      --mask-position-x: calc(100% - var(--light-x));
+      --mask-position-y: calc(100% - var(--light-y));
+      --light-radius-midpoint: calc(var(--light-radius) * 0.8);
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: grayscale(0.75) brightness(0.3);
+      -webkit-mask-image: radial-gradient(circle, transparent 0%, var(--light-radius-midpoint), #fff var(--light-radius));
+      -webkit-mask-size: 200% 200%;
+      -webkit-mask-position: var(--mask-position-x) var(--mask-position-y);
+    }
 
-      .bg-url-input {
-          margin-top: 10px;
-      }
+    .bg-url-input {
+      margin-top: 10px;
+    }
 
-      .bg-url-input input {
-          border: none;
-          width: 30em;
-          outline: none;
-          background-color: transparent;
-          color: inherit;
-          font-size: 20px;
-      }
+    .bg-url-input input {
+      border: none;
+      width: 30em;
+      outline: none;
+      background-color: transparent;
+      color: inherit;
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
-<div class="scene"></div>
-<div class="bg-url-input">
-  <label>输入背景图片url：<input type="text" autofocus></label>
-</div>
+  <div class="scene"></div>
+  <div class="bg-url-input">
+    <label>输入背景图片url：<input type="text" autofocus></label>
+  </div>
 
-<div class="manual">
-  <header>操作说明</header>
-  <hr>
-  <div>移动鼠标：移动聚光灯</div>
-  <div>滚动滚轮：放大/缩小聚光灯</div>
-  <div>点击鼠标中键：重置聚光灯大小(80px)</div>
-  <hr>
-  <div>更改背景图片：输入 url 后，按下Enter键（图片可能有防盗链处理，此时会无法加载）</div>
-  <div>重置背景图片：输入 <span class="reset-cheats">homura is author's waifu</span> 后，按下Enter键</div>
-</div>
+  <div class="manual">
+    <header>操作说明</header>
+    <hr>
+    <div>移动鼠标：移动聚光灯</div>
+    <div>滚动滚轮：放大/缩小聚光灯</div>
+    <div>点击鼠标中键：重置聚光灯大小(80px)</div>
+    <hr>
+    <div>更改背景图片：输入 url 后，按下Enter键（图片可能有防盗链处理，此时会无法加载）</div>
+    <div>重置背景图片：输入 <span class="reset-cheats">homura is author's waifu</span> 后，按下Enter键</div>
+  </div>
 
-<script>
-  // light position
-  const scene = document.getElementsByClassName('scene')[0]
-  const sceneWidth = scene.offsetWidth
-  const sceneHeight = scene.offsetHeight
+  <script>
+    // light position
+    const scene = document.getElementsByClassName('scene')[0]
+    const sceneWidth = scene.offsetWidth
+    const sceneHeight = scene.offsetHeight
 
-  scene.addEventListener('mousemove', ({ offsetX, offsetY }) => {
-    const xPercentage = offsetX / sceneWidth
-    const yPercentage = offsetY / sceneHeight
-    scene.style.setProperty('--light-x', xPercentage * 100 + '%')
-    scene.style.setProperty('--light-y', yPercentage * 100 + '%')
-  })
+    scene.addEventListener('mousemove', ({ offsetX, offsetY }) => {
+      const xPercentage = offsetX / sceneWidth
+      const yPercentage = offsetY / sceneHeight
+      scene.style.setProperty('--light-x', xPercentage * 100 + '%')
+      scene.style.setProperty('--light-y', yPercentage * 100 + '%')
+    })
 
-  // light radius
-  const initRadius = 80
-  let radius = initRadius
-  scene.style.setProperty('--light-radius', radius + 'px')
+    // light radius
+    const initRadius = 80
+    let radius = initRadius
+    const setRadius = () => scene.style.setProperty('--light-radius', radius + 'px')
 
-  scene.addEventListener('wheel', ({ deltaY }) => {
-    deltaY < 0 ? radius += 2 : radius -= 2
-    if (radius < 0) radius = 0
-    scene.style.setProperty('--light-radius', radius + 'px')
-  })
-  scene.addEventListener('auxclick', (e) => {
-    if (e.button === 1) {
-      scene.style.setProperty('--light-radius', initRadius + 'px')
-    }
-  })
+    setRadius()
 
-  // url input
-  const resetCheats = 'homura is author\'s waifu'
-  const initUrl = '../images/material/wallhaven-85o6mj.jpg'
-  scene.style.setProperty('--bg-url', `url("${initUrl}")`)
+    scene.addEventListener('wheel', ({ deltaY }) => {
+      deltaY < 0 ? radius += 2 : radius -= 2
+      if (radius < 0) radius = 0
+      setRadius()
+    })
+    scene.addEventListener('auxclick', (e) => {
+      if (e.button === 1) {
+        radius = initRadius
+        setRadius()
+      }
+    })
 
-  const input = document.getElementsByTagName('input')[0]
-  input.addEventListener('keydown', ({ key }) => {
-    if (key === 'Enter') {
-      const url = input.value === resetCheats ? initUrl : input.value
-      scene.style.setProperty('--bg-url', `url("${url}")`)
-    }
-  })
-</script>
+    // url input
+    const resetCheats = 'homura is author\'s waifu'
+    const initUrl = '../images/material/wallhaven-85o6mj.jpg'
+    scene.style.setProperty('--bg-url', `url("${initUrl}")`)
+
+    const input = document.getElementsByTagName('input')[0]
+    input.addEventListener('keydown', ({ key }) => {
+      if (key === 'Enter') {
+        const url = input.value === resetCheats ? initUrl : input.value
+        scene.style.setProperty('--bg-url', `url("${url}")`)
+      }
+    })
+  </script>
 </body>
 </html>
